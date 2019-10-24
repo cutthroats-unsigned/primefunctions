@@ -35,8 +35,45 @@ function cumulativeSum(number) {
   }
   return tempArray;
 }
+function maxPrimeSum(number) {
+  let maxSum = 0;
+  let maxRun = -1;
+  let finalSum = 0;
+  let run = 0;
 
+  const primeSum = primeGen(number);
+
+  const finalArray = [];
+  let flag = true;
+  for (let i = 0; i < primeSum.length; i++) {
+    maxSum = 0;
+    run = 0;
+    for (let j = i; j < primeSum.length; j++) {
+      maxSum += primeSum[j];
+      run++;
+      if (maxSum >= number) {
+        break;
+      }
+      for (let mod = 2; mod < maxSum; mod++) {
+        if (maxSum % mod === 0) { // not prime
+          flag = false;
+        }
+      }
+      if (maxSum > finalSum && run >= maxRun && flag !== false) {
+        maxRun = run;
+        finalSum = maxSum;
+      }
+
+      flag = true;
+    }
+  }
+
+  finalArray.push(finalSum);
+  finalArray.push(maxRun);
+  return finalArray;
+}
 console.log(primeGen(10));
 console.log('---------------------');
 console.log(cumulativeSum([1, 2, 3, 4, 5, 6]));
 console.log('---------------------');
+console.log(maxPrimeSum(1000));
