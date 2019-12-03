@@ -74,6 +74,6 @@ function maxPrimeSum(number) {
 }
 console.log(primeGen(10));
 console.log('---------------------');
-console.log(cumulativeSum([1, 2, 3, 4, 5, 6]));
+console.log(cumulativeSum([1, 2, 3, 4]));
 console.log('---------------------');
 console.log(maxPrimeSum(1000));

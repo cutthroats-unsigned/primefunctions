@@ -1,10 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
   <meta charset="UTF-8">
-  <title>Title</title>
+  <title>TestSuite1</title>
+  <link href="https://unpkg.com/mocha@5.2.0/mocha.css" rel="stylesheet"/>
 </head>
-<body>
 
+<body>
+<div id="mocha"></div>
+
+<script src="https://unpkg.com/chai/chai.js"></script>
+<script src="https://unpkg.com/mocha@5.2.0/mocha.js"></script>
+
+<script>mocha.setup('bdd')</script>
+<script src="primefunctions.js"></script>
+<script src="testCorrectness.js"></script>
+<script>
+  mocha.checkLeaks();
+  mocha.run();
+</script>
 </body>
 </html>
